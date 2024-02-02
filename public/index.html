@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Navigation Bar -->
+      <!-- <nav>
+        <ul>
+          <li><a href="#view-expenses">View Expenses</a></li>
+          <li><a href="#add-expenses">Add Expenses</a></li>
+        </ul>
+      </nav> -->
+      <button id="logoutButton" onclick="handleLogout()">LogOut</button>
+
+      <!-- View Expenses Page -->
+      <div id="view-expenses">
+        <h2>Your Expenses</h2>
+        <table id="current-user-expenses">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <h2>Expenses to Pay</h2>
+        <table id="user-to-pay-expenses">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>PayTo</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <h2>Expenses to Receive</h2>
+        <table id="user-to-get-expenses">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>AmountGetFrom</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- Add Expenses Page -->
+      <h2>Add Expenses</h2>
+      <div class="container-fluid">
+        <div id="expense-type-selection">
+          <label>
+            Add Own Expense
+            <input
+              id="simple-expense"
+              type="radio"
+              name="expenseType"
+              value="ownExpense"
+              checked
+            />
+          </label>
+
+          <label>
+            Add Split to Payer
+            <input
+              id="split-expenses"
+              type="radio"
+              name="expenseType"
+              value="splitToPayer"
+            />
+          </label>
+          <!-- <button class="btn bg-primary" id="simple-expense">Add Own Expense</button>
+          <button class="btn bg-primary" id="simple-expense">Add Own Expense</button> -->
+        </div>
+      </div>
+
+      <form id="expenseForm">
+        <div id="ownExpenseFields">
+          <label for="amount">Amount:</label>
+          <input type="number" id="amount" name="amount" class="design" />
+
+          <label for="description">Description:</label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            class="design"
+          />
+        </div>
+
+        <div id="splitToPayerFields" style="display: none">
+          <label for="splitAmount">Amount:</label>
+          <input
+            type="number"
+            id="splitAmount"
+            name="splitAmount"
+            class="design"
+          />
+
+          <label for="payer">Payer:</label>
+          <input type="text" id="payer" name="payer" class="design" />
+
+          <label for="splitDescription">Description:</label>
+          <input
+            type="text"
+            id="splitDescription"
+            name="splitDescription"
+            class="design"
+          />
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script src="scripts.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
